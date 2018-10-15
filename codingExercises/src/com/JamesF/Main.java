@@ -1,5 +1,7 @@
 package com.JamesF;
 
+import java.text.DecimalFormat;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -14,6 +16,20 @@ public class Main {
         System.out.println("Is this a leap year? " + isLeapYear(1600));
         System.out.println("Is this a leap year? " + isLeapYear(2017));
         System.out.println("Is this a leap year? " + isLeapYear(2000));
+
+        System.out.println(areEqualByThreeDecimalPlaces(-3.1756, -3.175));
+        System.out.println(areEqualByThreeDecimalPlaces(3.175, 3.176));
+        System.out.println(areEqualByThreeDecimalPlaces(3.0, 3.0));
+
+        System.out.println("The sum of the first and second is equal to the third is " + hasEqualSum(1, 1, 1));
+        System.out.println("The sum of the first and second is equal to the third is " + hasEqualSum(1, 1, 2));
+        System.out.println("The sum of the first and second is equal to the third is " + hasEqualSum(1, -1, 0));
+
+        System.out.println("Is this number a teen " + hasTeen(9, 99, 19));
+        System.out.println("Is this number a teen " + hasTeen(23, 15, 42));
+        System.out.println("Is this number a teen " + hasTeen(21, 23, 45));
+
+
 
     }
 
@@ -51,6 +67,42 @@ public class Main {
         }
 
         return leapYear;
+    }
+
+    public static boolean areEqualByThreeDecimalPlaces(double firstNum, double secondNum) {
+
+        boolean areEqual = false;
+
+        int convertFirst = (int) (firstNum * 1000);
+        int convertSecond = (int) (secondNum * 1000);
+
+        if (convertFirst == convertSecond) {
+            areEqual = true;
+        }
+
+        return areEqual;
+    }
+
+    public static boolean hasEqualSum(int first, int second, int third) {
+        boolean isEqual = false;
+
+        int sum = first + second;
+
+        if (sum == third) {
+            isEqual = true;
+        }
+
+        return isEqual;
+    }
+
+    public static boolean hasTeen(int first, int second, int third) {
+        boolean isTeen = false;
+
+        if (first >= 13 && first <= 19 || second >= 13 && second <= 19 || third >= 13 && third <= 19) {
+            isTeen = true;
+        }
+
+        return isTeen;
     }
 
 
